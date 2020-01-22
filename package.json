@@ -1,0 +1,11 @@
+{
+  "name": "square-node-sdk-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/josephlbaker/square-node-sdk-example.git",
+  "author": "josephlbaker <joelucasbaker@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "square-connect": "^2.20191217.0"
+  }
+}
