@@ -34,19 +34,22 @@ var opts = {
   'cursor': "", // String | The pagination cursor returned in the previous response. Leave unset for an initial request. See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
   'types': "ITEM,ITEM_VARIATION,CATEGORY,IMAGE" // String | An optional case-insensitive, comma-separated list of object types to retrieve, for example `ITEM,ITEM_VARIATION,CATEGORY,IMAGE`.  The legal values are taken from the CatalogObjectType enum: `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`, `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.
 };
-apiInstance.listCatalog(opts).then(function (data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function (error) {
-  console.error(error);
+
+app.get('/', (req, res) => {
+  apiInstance.listCatalog(opts).then(function (data) {
+    res.send(data.objects[0].item_data.name);
+  }, function (error) {
+    console.error(error);
+  });
 });
 
 ///////////////
 ////END SDK////
 ///////////////
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// });
 
 app.listen(8000, () => {
   console.log('Example app listening on port 8000!')
