@@ -6,6 +6,7 @@
   "author": "josephlbaker <joelucasbaker@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
     "square-connect": "^2.20191217.0"
   }
 }
