@@ -1,5 +1,8 @@
+const cors = require('cors');
 const express = require('express')
 const app = express();
+app.use(cors());
+app.options('*', cors());
 
 //////////////////
 ////Square SDK////
@@ -37,11 +40,13 @@ var opts = {
 
 app.get('/', (req, res) => {
   apiInstance.listCatalog(opts).then(function (data) {
-    res.send(data.objects[0].item_data.name);
+    res.send(data);
   }, function (error) {
     console.error(error);
   });
 });
+
+//     res.send(data.objects[0].item_data.name);
 
 ///////////////
 ////END SDK////
@@ -50,6 +55,7 @@ app.get('/', (req, res) => {
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
 // });
+
 
 app.listen(8000, () => {
   console.log('Example app listening on port 8000!')
